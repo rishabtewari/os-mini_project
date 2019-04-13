@@ -1,0 +1,29 @@
+int arrangeArrival(int bt[], int at[],int n)
+{
+    int i,process[10]={1,2,3,4,5,6,7,8,9,10};
+    int temp,j;
+	 for(i=0;i<n;i++)
+   {
+        for(j=0;j<n;j++)
+      {
+           if(at[i]<at[j])
+         {
+                 temp=process[j];
+                 process[j]=process[i];
+                 process[i]=temp;
+                 temp=at[j];
+                 at[j]=at[i];
+                 at[i]=temp;
+                 temp=bt[j];
+                 bt[j]=bt[i];
+                 bt[i]=temp;
+         }
+      }
+   }
+   printf("#############################################  ARANGING ARRIVAL TIME  #################################################");
+   printf("\n\tPROCESS\t BURST\t ARRIVAL" );
+      for(i=0;i<n;i++)
+   {
+        printf("\n\t [p%d]\t %d\t %d",process[i],bt[i],at[i]);
+   }
+}
